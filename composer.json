@@ -1,0 +1,12 @@
+{
+  "name": "wearejh/m2-module-logger",
+  "description": "Logger Module for Magento 2",
+  "autoload": {
+    "files": [
+      "registration.php"
+    ],
+    "psr-4": {
+      "Jh\\Logger\\": ""
+    }
+  }
+}

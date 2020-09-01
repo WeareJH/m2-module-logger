@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <virtualType name="Jh\Logger\Model\ResourceModel\Log\Grid\Collection"
+                 type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">jh_logging</argument>
+            <argument name="resourceModel" xsi:type="string">Jh\Logger\Model\ResourceModel\Log</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="Jh\Logger\Model\ResourceModel\Issue\Grid\Collection"
+                 type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">jh_logging_issue</argument>
+            <argument name="resourceModel" xsi:type="string">Jh\Logger\Model\ResourceModel\Issue</argument>
+        </arguments>
+    </virtualType>
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="log_listing_data_source" xsi:type="string">
+                    Jh\Logger\Model\ResourceModel\Log\Grid\Collection
+                </item>
+                <item name="issue_listing_data_source" xsi:type="string">
+                    Jh\Logger\Model\ResourceModel\Issue\Grid\Collection
+                </item>
+            </argument>
+        </arguments>
+    </type>
+    <preference for="Jh\Logger\Api\Data\LogInterface" type="Jh\Logger\Model\Log"/>
+    <preference for="Jh\Logger\Api\Data\IssueInterface" type="Jh\Logger\Model\Issue"/>
+
+    <preference for="Jh\Logger\Api\LogRepositoryInterface" type="Jh\Logger\Model\LogRepository"/>
+    <preference for="Jh\Logger\Api\IssueRepositoryInterface" type="Jh\Logger\Model\IssueRepository"/>
+    <preference for="Jh\Logger\Api\LoggerManagementInterface" type="Jh\Logger\Service\LoggerManagement"/>
+    <preference for="Jh\Logger\Api\IssueManagementInterface" type="Jh\Logger\Service\IssueManagement"/>
+    <preference for="Jh\Logger\Api\ReportManagementInterface" type="Jh\Logger\Service\ReportManagement"/>
+</config>

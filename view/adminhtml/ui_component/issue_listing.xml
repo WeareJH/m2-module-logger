@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">issue_listing.issue_listing_data_source</item>
+            <item name="deps" xsi:type="string">issue_listing.issue_listing_data_source</item>
+        </item>
+
+        <item name="spinner" xsi:type="string">issue_columns</item>
+    </argument>
+
+    <dataSource name="issue_listing_data_source">
+        <argument name="dataProvider" xsi:type="configurableObject">
+            <argument name="class" xsi:type="string">Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider</argument>
+            <argument name="name" xsi:type="string">issue_listing_data_source</argument>
+            <argument name="primaryFieldName" xsi:type="string">issue_id</argument>
+            <argument name="requestFieldName" xsi:type="string">issue_id</argument>
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="component" xsi:type="string">Magento_Ui/js/grid/provider</item>
+                    <item name="update_url" xsi:type="url" path="mui/index/render"/>
+                </item>
+            </argument>
+        </argument>
+    </dataSource>
+
+    <listingToolbar name="listing_top">
+        <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+                <item name="sticky" xsi:type="boolean">true</item>
+            </item>
+        </argument>
+
+        <filters name="listing_filter" />
+        <paging name="listing_paging"/>
+    </listingToolbar>
+
+    <columns name="issue_columns" class="Magento\Ui\Component\Listing\Columns">
+        <column name="issue_id">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="label" xsi:type="string" translate="true">Issue ID</item>
+                    <item name="sortOrder" xsi:type="number">10</item>
+                    <item name="filter" xsi:type="string">text</item>
+                    <item name="sorting" xsi:type="string">desc</item>
+                </item>
+            </argument>
+        </column>
+
+        <column name="type">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="label" xsi:type="string" translate="true">Type</item>
+                    <item name="sortOrder" xsi:type="number">20</item>
+                    <item name="filter" xsi:type="string">text</item>
+                </item>
+            </argument>
+        </column>
+
+        <column name="timestamp">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="label" xsi:type="string" translate="true">Timestamp</item>
+                    <item name="filter" xsi:type="string">dateRange</item>
+                    <item name="component" xsi:type="string">Magento_Ui/js/grid/columns/date</item>
+                    <item name="dataType" xsi:type="string">date</item>
+                    <item name="sortOrder" xsi:type="number">30</item>
+                </item>
+            </argument>
+        </column>
+
+        <column name="is_active" class="Jh\Logger\Ui\Component\Listing\Column\Status">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="label" xsi:type="string" translate="true">Status</item>
+                    <item name="sortOrder" xsi:type="number">40</item>
+                    <item name="filter" xsi:type="string">text</item>
+                </item>
+            </argument>
+        </column>
+
+        <actionsColumn name="resolve" class="Jh\Logger\Ui\Component\Listing\Column\Resolve">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="indexField" xsi:type="string">issue_id</item>
+                </item>
+            </argument>
+        </actionsColumn>
+    </columns>
+</listing>

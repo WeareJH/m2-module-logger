@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+  <table name="jh_logging" resource="default" engine="innodb" comment="Jh Logging">
+    <column xsi:type="int" name="logger_id" padding="11" unsigned="true" nullable="false" identity="true" comment="Logger Id"/>
+    <column xsi:type="int" name="issue_id" padding="11" unsigned="true" nullable="false" identity="false" comment="Issue Id"/>
+    <column xsi:type="varchar" name="type" nullable="false" length="50" comment="Type"/>
+    <column xsi:type="text" name="message" nullable="false" comment="Message"/>
+    <column xsi:type="int" name="severity" padding="11" unsigned="true" nullable="false" identity="false" comment="Severity"/>
+    <column xsi:type="varchar" name="identifier_label" nullable="true" length="20" comment="Identifier Label"/>
+    <column xsi:type="varchar" name="identifier_value" nullable="true" length="50" comment="Identifier Value"/>
+    <column xsi:type="timestamp" name="timestamp" nullable="false" comment="Timestamp"/>
+    <constraint xsi:type="primary" referenceId="PRIMARY">
+      <column name="logger_id"/>
+    </constraint>
+    <index referenceId="JH_LOGGING_TYPE" indexType="btree">
+      <column name="type"/>
+    </index>
+  </table>
+  <table name="jh_logging_issue" resource="default" engine="innodb" comment="Jh Logging Issue">
+    <column xsi:type="int" name="issue_id" padding="11" unsigned="true" nullable="false" identity="true" comment="Issue Id"/>
+    <column xsi:type="varchar" name="type" nullable="false" length="50" comment="Type"/>
+    <column xsi:type="timestamp" name="timestamp" nullable="false" comment="Timestamp"/>
+    <column xsi:type="smallint" name="is_active" padding="11" unsigned="true" nullable="false" identity="false" comment="Is Active"/>
+    <constraint xsi:type="primary" referenceId="PRIMARY">
+      <column name="issue_id"/>
+    </constraint>
+    <index referenceId="JH_LOGGING_ISSUE_TYPE" indexType="btree">
+      <column name="type"/>
+    </index>
+    <index referenceId="JH_LOGGING_ISSUE_IS_ACTIVE" indexType="btree">
+      <column name="is_active"/>
+    </index>
+  </table>
+</schema>

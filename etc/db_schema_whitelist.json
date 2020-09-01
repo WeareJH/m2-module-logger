@@ -1,0 +1,35 @@
+{
+    "jh_logging": {
+        "column": {
+            "logger_id": true,
+            "issue_id": true,
+            "type": true,
+            "message": true,
+            "severity": true,
+            "identifier_label": true,
+            "identifier_value": true,
+            "timestamp": true
+        },
+        "index": {
+            "JH_LOGGING_TYPE": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    },
+    "jh_logging_issue": {
+        "column": {
+            "issue_id": true,
+            "type": true,
+            "timestamp": true,
+            "is_active": true
+        },
+        "index": {
+            "JH_LOGGING_ISSUE_TYPE": true,
+            "JH_LOGGING_ISSUE_IS_ACTIVE": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    }
+}

@@ -1,0 +1,3 @@
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Email:etc/email_templates.xsd">
+    <template id="jh_logger_alert" label="Jh Logger Email" file="jh_logger_alert.html" type="text" module="Jh_Logger" area="frontend"/>
+</config>

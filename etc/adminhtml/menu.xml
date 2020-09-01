@@ -1,0 +1,7 @@
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Jh_Logger::logger" title="Logs and Issues" translate="title" module="Jh_Logger" sortOrder="100" parent="Magento_Backend::system" resource="Jh_Logger::logger"/>
+        <add id="Jh_Logger::logs"   title="Logs"   translate="title" module="Jh_Logger" sortOrder="200" parent="Jh_Logger::logger" action="logger/log" resource="Jh_Logger::logs" />
+        <add id="Jh_Logger:issues"  title="Issues" translate="title" module="Jh_Logger" sortOrder="300" parent="Jh_Logger::logger" action="logger/issue" resource="Jh_Logger::issues" />
+    </menu>
+</config>

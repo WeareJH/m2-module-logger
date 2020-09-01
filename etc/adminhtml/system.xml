@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="jh_logger" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+            <tab>wearejh</tab>
+            <label>Logger</label>
+            <resource>Jh_Logger::config</resource>
+            <group id="alert" translate="label"  type="text" sortOrder="0" showInDefault="1" showInStore="0" showInWebsite="0">
+                <label>Alerts</label>
+                <field id="email_enabled" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Email Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="default_email" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Default Email Address</label>
+                    <validate>validate-email</validate>
+                    <backend_model>Magento\Config\Model\Config\Backend\Email\Address</backend_model>
+                </field>
+                <field id="default_name" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Default Name (Emails)</label>
+                </field>
+                <field id="subject_prefix" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Subject Prefix</label>
+                </field>
+            </group>
+            <group id="clean" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Log Cleaning Options</label>
+                <field id="enabled" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="days" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="0" showInStore="0" >
+                    <label>Clean After Days</label>
+                    <validate>validate-digits</validate>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>
