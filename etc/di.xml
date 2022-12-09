@@ -18,7 +18,7 @@
     <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
         <arguments>
             <argument name="collections" xsi:type="array">
-                <item name="log_listing_data_source" xsi:type="string">
+                <item name="jh_logger_listing_data_source" xsi:type="string">
                     Jh\Logger\Model\ResourceModel\Log\Grid\Collection
                 </item>
                 <item name="issue_listing_data_source" xsi:type="string">
