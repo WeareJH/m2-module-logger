@@ -84,6 +84,7 @@ class LoggerManagement implements LoggerManagementInterface
         $log->setSeverity($severity);
         $log->setIdentifierLabel($identifierLabel);
         $log->setIdentifierValue($identifierValue);
+        $log->setTimestamp(strtotime(time()));
         $this->logRepository->save($log);
         return true;
     }
