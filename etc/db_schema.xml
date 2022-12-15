@@ -8,7 +8,7 @@
     <column xsi:type="int" name="severity" padding="11" unsigned="true" nullable="false" identity="false" comment="Severity"/>
     <column xsi:type="varchar" name="identifier_label" nullable="true" length="20" comment="Identifier Label"/>
     <column xsi:type="varchar" name="identifier_value" nullable="true" length="50" comment="Identifier Value"/>
-    <column xsi:type="timestamp" name="timestamp" nullable="false" comment="Timestamp"/>
+    <column xsi:type="timestamp" name="timestamp" nullable="false" default="CURRENT_TIMESTAMP" comment="Timestamp"/>
     <constraint xsi:type="primary" referenceId="PRIMARY">
       <column name="logger_id"/>
     </constraint>
@@ -19,7 +19,7 @@
   <table name="jh_logging_issue" resource="default" engine="innodb" comment="Jh Logging Issue">
     <column xsi:type="int" name="issue_id" padding="11" unsigned="true" nullable="false" identity="true" comment="Issue Id"/>
     <column xsi:type="varchar" name="type" nullable="false" length="50" comment="Type"/>
-    <column xsi:type="timestamp" name="timestamp" nullable="false" comment="Timestamp"/>
+    <column xsi:type="timestamp" name="timestamp" nullable="false" default="CURRENT_TIMESTAMP" comment="Timestamp"/>
     <column xsi:type="smallint" name="is_active" padding="11" unsigned="true" nullable="false" identity="false" comment="Is Active"/>
     <constraint xsi:type="primary" referenceId="PRIMARY">
       <column name="issue_id"/>
