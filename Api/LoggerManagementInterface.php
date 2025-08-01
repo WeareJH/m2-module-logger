@@ -14,6 +14,7 @@ interface LoggerManagementInterface
      * @param int $severity
      * @param bool $createIssue
      * @param \Exception $exception
+     * @param \DateTime $timestamp
      * @return bool
      */
     public function addEvent(
@@ -23,7 +24,8 @@ interface LoggerManagementInterface
         string $identifierValue = '',
         int $severity = 1,
         bool $createIssue = true,
-        \Exception $exception = null
+        \Exception $exception = null,
+        \DateTime $timestamp = null
     ): bool;
 
     /**

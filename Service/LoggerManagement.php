@@ -35,7 +35,7 @@ class LoggerManagement implements LoggerManagementInterface
      * @var ReportManagementInterface
      */
     private $reportManagement;
-
+    
     public function __construct(
         LogInterfaceFactory $logFactory,
         LogRepositoryInterface $logRepository,
@@ -70,7 +70,8 @@ class LoggerManagement implements LoggerManagementInterface
         string $identifierValue = '',
         int $severity = 1,
         bool $createIssue = true,
-        \Exception $exception = null
+        \Exception $exception = null,
+        \DateTime $timestamp = null
     ): bool {
         $issueId = 0;
         if ($createIssue === true) {
@@ -84,6 +85,7 @@ class LoggerManagement implements LoggerManagementInterface
         $log->setSeverity($severity);
         $log->setIdentifierLabel($identifierLabel);
         $log->setIdentifierValue($identifierValue);
+        $timestamp ? $log->setTimestamp($timestamp->format('M j, Y g:i:s A')) : $log->setTimestamp(date('M j, Y g:i:s A'));
         $this->logRepository->save($log);
         return true;
     }
