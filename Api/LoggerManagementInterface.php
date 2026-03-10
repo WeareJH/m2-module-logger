@@ -23,7 +23,7 @@ interface LoggerManagementInterface
         string $identifierValue = '',
         int $severity = 1,
         bool $createIssue = true,
-        \Exception $exception = null
+        ?\Exception $exception = null
     ): bool;
 
     /**
