@@ -70,7 +70,7 @@ class LoggerManagement implements LoggerManagementInterface
         string $identifierValue = '',
         int $severity = 1,
         bool $createIssue = true,
-        \Exception $exception = null
+        ?\Exception $exception = null
     ): bool {
         $issueId = 0;
         if ($createIssue === true) {
@@ -113,7 +113,7 @@ class LoggerManagement implements LoggerManagementInterface
      * @return bool|int
      * @throws \Exception
      */
-    private function createIssue(string $type, string $message, \Exception $exception = null)
+    private function createIssue(string $type, string $message, ?\Exception $exception = null)
     {
         if ($issueId = $this->issueManagement->isOpen($type)) {
             return $issueId;
